@@ -1,10 +1,10 @@
 import Document, {
+  DocumentContext,
+  DocumentInitialProps,
   Html,
   Head,
   Main,
   NextScript,
-  DocumentContext,
-  DocumentInitialProps,
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
@@ -16,7 +16,6 @@ export default class MyDocument extends Document {
     const originalRenderPage = ctx.renderPage;
 
     try {
-      // Coleta os estilos da aplicação antes de renderizar
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) =>
@@ -24,19 +23,16 @@ export default class MyDocument extends Document {
         });
 
       const initialProps = await Document.getInitialProps(ctx);
-
       return {
         ...initialProps,
         styles: (
           <>
             {initialProps.styles}
-            {/* Injeta os estilos do styled-components no HTML gerado */}
             {sheet.getStyleElement()}
           </>
         ),
       };
     } finally {
-      // Limpa a folha de estilos da memória
       sheet.seal();
     }
   }
@@ -44,7 +40,12 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="pt-BR">
-        <Head />
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Libre%20Baskerville:wght@400&amp;display=swap"
+            rel="stylesheet"
+          ></link>
+        </Head>
         <body>
           <Main />
           <NextScript />

@@ -1,9 +1,9 @@
-import { AppHeader } from "@/components/app-header";
+import { AppHeader } from "@/components/layout/AppHeader";
 
 export default function HomePage() {
   return (
     <div>
-      <AppHeader></AppHeader>
+      <AppHeader />
     </div>
   );
 }
