@@ -49,6 +49,14 @@ export const Container = styled.button<ContainerProps>`
   background-color: transparent;
   font-weight: bold;
   width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  svg {
+    width: 18px;
+  }
 
   ${({ $variant }) => variantStyles[$variant]}
 `;

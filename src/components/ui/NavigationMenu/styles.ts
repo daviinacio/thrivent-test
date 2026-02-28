@@ -89,12 +89,8 @@ export const Trigger = styled(NavigationMenuPrimitive.Trigger)`
 `;
 
 export const List = styled(NavigationMenuPrimitive.List)`
-  display: none;
+  display: flex;
   gap: 16px;
-
-  ${media.desktop} {
-    display: flex;
-  }
 `;
 
 export const Item = styled(NavigationMenuPrimitive.Item)`
