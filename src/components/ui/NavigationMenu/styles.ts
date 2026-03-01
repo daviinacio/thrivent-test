@@ -61,6 +61,10 @@ export const Trigger = styled(NavigationMenuPrimitive.Trigger)`
 
   border-bottom: 2px solid transparent;
 
+  svg {
+    width: 16px;
+  }
+
   &:hover {
     color: ${({ theme }) => theme.colors.secondary};
     border-bottom-color: ${({ theme }) => theme.colors.secondary};
@@ -78,12 +82,12 @@ export const Trigger = styled(NavigationMenuPrimitive.Trigger)`
     width: 16px;
     height: 16px;
     background: linear-gradient(to bottom right, white 50%, transparent 50%);
-    z-index: 10;
+    z-index: 15;
     border-left: 1px solid #ddd;
     border-top: 1px solid #ddd;
     position: absolute;
     transform: rotate(45deg) translateX(-50%);
-    top: 190%;
+    top: 40px;
     left: 50%;
   }
 `;
@@ -105,4 +109,5 @@ export const Content = styled(NavigationMenuPrimitive.Content)`
   background-color: ${({ theme }) => theme.colors.background};
   border: 1px solid #ddd;
   border-radius: 8px;
+  z-index: 10;
 `;

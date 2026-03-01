@@ -52,6 +52,7 @@ export function AppSideMenu({ children }: AppSideMenuProps) {
           <S.ListWrapper>
             {menus.map((it, i) => (
               <S.ListItem
+                key={i}
                 onClick={() => {
                   setCurrentMenuOption(it);
                   setIsItemOpen(true);

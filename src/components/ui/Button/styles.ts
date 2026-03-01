@@ -1,3 +1,4 @@
+import { media } from "@/styles/media";
 import styled, { css, RuleSet } from "styled-components";
 
 export type ButtonVariant =
@@ -36,16 +37,36 @@ export const variantStyles: {
   `,
 };
 
+export type ButtonSize = "default" | "big";
+
+export const sizeStyles: {
+  [key in ButtonSize]: RuleSet<ContainerProps>;
+} = {
+  default: css<ContainerProps>`
+    padding: 0.75rem;
+    font-size: 0.75rem;
+  `,
+  big: css<ContainerProps>`
+    padding: 0.75rem;
+    font-size: 0.75rem;
+
+    ${media.tablet} {
+      padding: 1.5rem;
+      font-size: 1rem;
+    }
+  `,
+};
+
 interface ContainerProps {
   $variant: ButtonVariant;
+  $size: ButtonSize;
   $accentColor?: string;
 }
 
 export const Container = styled.button<ContainerProps>`
   cursor: pointer;
-  border: 1px solid transparent;
-  border-radius: 5px;
-  padding: 8px 12px;
+  border: 2px solid transparent;
+  border-radius: 8px;
   background-color: transparent;
   font-weight: bold;
   width: max-content;
@@ -53,10 +74,13 @@ export const Container = styled.button<ContainerProps>`
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  line-height: 18px;
 
   svg {
     width: 18px;
+    height: 18px;
   }
 
   ${({ $variant }) => variantStyles[$variant]}
+  ${({ $size }) => sizeStyles[$size]}
 `;

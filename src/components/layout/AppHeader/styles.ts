@@ -20,6 +20,7 @@ export const Container = styled.div`
   }
 
   ${media.desktop} {
+    padding: 1.75rem 1.5rem;
     grid-template-columns: 1fr auto;
     grid-template-rows: auto auto;
   }

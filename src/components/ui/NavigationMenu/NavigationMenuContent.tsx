@@ -1,4 +1,3 @@
-import { PropsWithChildren } from "react";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import * as S from "./styles";
 
